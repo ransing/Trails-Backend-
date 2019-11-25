@@ -1,0 +1,2 @@
+class CreateEventsController < ApplicationController
+end

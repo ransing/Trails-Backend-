@@ -1,0 +1,2 @@
+class TrailCommentsController < ApplicationController
+end
