@@ -18,7 +18,7 @@ class ApplicationController < ActionController::API
 
     def decoded_token
         begin
-            token = request.headers["Authorization"].split(" ")[1]
+            token = request.headers["Authorization"]
             JWT.decode(token, "gsfigsofhofhodhfhfhlahfhfkdhflhdf", true, { algorithm: "HS256"} )
         rescue 
             return nil

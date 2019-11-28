@@ -1,6 +1,7 @@
 class LoginController < ApplicationController
         
     def login 
+        # debugger 
         user = User.find_by(username: params[:username])
         is_authenticated = user && user.authenticate(params[:password])
 

@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
 
-    has_many :created_events, class_name: "Create_event", foreign_key: "user_id"
+    has_many :created_events, class_name: "Create_event", foreign_key: "event_id"
     has_many :users_create_events, through: :created_events, source: :event
 
     has_many :user_events

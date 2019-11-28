@@ -4,8 +4,8 @@ class Event < ApplicationRecord
   has_many :create_events
   has_many :users, through: :create_events
 
-  has_many :attendees 
-  has_many : , through: : , source: : 
+  has_many :user_events
+  has_many :attending_event , through: :user_events , source: :users 
   
   
   # has_many :prescriptions
