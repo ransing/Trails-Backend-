@@ -13,5 +13,25 @@ class LoginController < ApplicationController
         end
     end 
 
+    # def send
+    #     begin 
+    #         token = request.headers["Authorization"].split(" ")[1]
+    #         x = JWT.decode(token, "gsfigsofhofhodhfhfhlahfhfkdhflhdf", true, { algorithm: "HS256"} )
+    #         # byebug
+    #         # @user = User.find(x[0]["user_id"])
+    #         user = x    
+    #         # [0]["user_id"]
+    #         # byebug
+    #         render json: {user: user}
+    #     rescue
+    #         render json: {message: "Oh no"}
+    #     end 
+       
+    # end 
+
+    def send
+        current_user
+    end 
+
 
 end

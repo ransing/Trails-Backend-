@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :current_users
   resources :user_trails
   resources :trail_comments
   resources :event_comments
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   post '/login', to: 'login#login'
   post '/signup', to: 'users#create'
   get '/profile', to: 'users#profile'
+  get '/login', to: 'login#send'
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

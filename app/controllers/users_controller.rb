@@ -11,7 +11,14 @@ class UsersController < ApplicationController
 
     def profile
         # found = current_user
+        # byebug
         render json: current_user
+        # byebug
+    end 
+
+    def index
+        @user =User.all
+        render json: @user
     end 
 
     def show

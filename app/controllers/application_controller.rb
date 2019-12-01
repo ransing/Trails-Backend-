@@ -4,6 +4,14 @@ class ApplicationController < ActionController::API
     # def decoded_token
     #     begin
     #         token = request.headers["Authorization"].split(" ")[1]
+    def decoded_token
+        begin
+            token = request.headers["Authorization"].split(" ")[1]
+            JWT.decode(token, "gsfigsofhofhodhfhfhlahfhfkdhflhdf", true, { algorithm: "HS256"} )
+        rescue 
+            return nil
+        end 
+    end 
 
     def create_token(user_id)
         payload = {user_id: user_id}
@@ -11,19 +19,14 @@ class ApplicationController < ActionController::API
     end 
 
     def current_user
+        # byebug
         if decoded_token !=nil
+            # byebug
             User.find(decoded_token[0]["user_id"])
         end  
+        # return current_user
     end 
 
-    def decoded_token
-        begin
-            token = request.headers["Authorization"]
-            JWT.decode(token, "gsfigsofhofhodhfhfhlahfhfkdhflhdf", true, { algorithm: "HS256"} )
-        rescue 
-            return nil
-        end 
-    end 
 
     def token_is_valid
         current_user != nil

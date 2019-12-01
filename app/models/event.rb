@@ -13,9 +13,19 @@ class Event < ApplicationRecord
   # has_many :pharmacists, through: :prescriptions, source: :doctor
 
 
-
-
   has_many :event_comments
   has_many :trail_comments
+
+
+
+  def event_users_id_array
+    # trail = Trail.find(:id)
+    self.users.map do |x| 
+        x.id 
+    end 
+  end 
+
+
+
 
 end

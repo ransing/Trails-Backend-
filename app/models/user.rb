@@ -10,5 +10,12 @@ class User < ApplicationRecord
     has_many :event_comments
     has_many :trail_comments 
 
+    has_many :user_trails
+    has_many :trails, through: :user_trails
+
+
+
+    
+
 
 end
