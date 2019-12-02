@@ -21,6 +21,12 @@ class UserTrailsController < ApplicationController
         render json: @user_trails
     end 
 
+    def destroy
+        @user_trail = UserTrail.find(params[:id])
+        @user_trail.destroy
+        
+    end 
+
 
     private 
 
