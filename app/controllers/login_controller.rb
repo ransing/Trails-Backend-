@@ -7,6 +7,7 @@ class LoginController < ApplicationController
 
         if is_authenticated 
             generated_token = create_token(user.id)
+            # debugger 
             render json: {token: generated_token, user_id: user.id}
         else  
             render json: {errors: ["try agian"]}, status: 422
@@ -29,9 +30,9 @@ class LoginController < ApplicationController
        
     # end 
 
-    def send
-        current_user
-    end 
+    # def send
+    #     current_user
+    # end 
 
 
 end

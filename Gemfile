@@ -21,6 +21,8 @@ gem 'jwt'
 
 gem 'rest-client', '~> 2.1.0.rc1'
 
+gem 'figaro'
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

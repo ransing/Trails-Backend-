@@ -24,7 +24,7 @@ class UserTrailsController < ApplicationController
     def destroy
         @user_trail = UserTrail.find(params[:id])
         @user_trail.destroy
-        
+
     end 
 
 

@@ -32,6 +32,10 @@ class Event < ApplicationRecord
     end 
   end 
 
+  def event_trail
+    self.trail.url 
+  end 
+
   
 
 

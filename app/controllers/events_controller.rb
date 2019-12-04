@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
     def index 
         @events = Event.all 
-        render json: @events 
+        render json: @events
         # debugger
     end 
 
@@ -14,7 +14,8 @@ class EventsController < ApplicationController
     def create
         @event = Event.create(event_params)
         if @event.valid?
-            render json: @event 
+            # render json: @event 
+            ActionCable.server.broadcast('events_channel', EventSerializer.new(event))
             # byebug
         else 
             render json: { error: @event.errors.full_messages}, status: :not_accepatble 

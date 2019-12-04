@@ -6,9 +6,16 @@ class EventCommentsController < ApplicationController
     end 
 
     def create 
-        @event_comment = EventComment.create(event_comment_params)
-        if @event_comment.valid?
-            render json: @event_comment 
+        # event = Event.find(params[:event_id])
+        @event_comment = EventComment.new(event_comment_params)
+
+        #!Broadcast that this comment went out 
+
+        if @event_comment.save
+            # debugger
+            ActionCable.server.broadcast('event_comments_channel', @event_comment)
+            # render json: @event_comment
+            # EventMessagesChannel.broadcast_to(event, ChatSerializer.new(chat))
             # byebug
         else 
             render json: { error: @event_comment.errors.full_messages}, status: :not_accepatble 
