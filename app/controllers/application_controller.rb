@@ -28,6 +28,26 @@ class ApplicationController < ActionController::API
     end 
 
 
+    def decoded_token_two
+        begin
+            token = request.headers["Authorization"]
+            JWT.decode(token, "gsfigsofhofhodhfhfhlahfhfkdhflhdf", true, { algorithm: "HS256"} )
+        rescue 
+            return nil
+        end 
+    end 
+
+
+    def current_user_two
+        # byebug
+        if decoded_token_two !=nil
+            # byebug
+            User.find(decoded_token[0]["user_id"])
+        end  
+        # return current_user
+    end 
+
+
     def token_is_valid
         current_user != nil
     end 

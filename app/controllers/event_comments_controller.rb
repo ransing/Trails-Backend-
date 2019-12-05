@@ -13,7 +13,7 @@ class EventCommentsController < ApplicationController
 
         if @event_comment.save
             # debugger
-            ActionCable.server.broadcast('event_comments_channel', @event_comment)
+            ActionCable.server.broadcast('event_comments_channel', EventCommentSerializer.new(@event_comment))
             # render json: @event_comment
             # EventMessagesChannel.broadcast_to(event, ChatSerializer.new(chat))
             # byebug
