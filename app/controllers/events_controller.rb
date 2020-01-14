@@ -14,7 +14,7 @@ class EventsController < ApplicationController
     def create
         @event = Event.create(event_params)
         if @event.valid?
-            # render json: @event 
+            render json: @event 
             ActionCable.server.broadcast('events_channel', EventSerializer.new(event))
             # byebug
         else 
@@ -22,6 +22,7 @@ class EventsController < ApplicationController
         end
         # debugger 
         CreateEvent.create(user_id: current_user.id, event_id: @event.id)
+            # render json: 
     end 
 
     def destroy
