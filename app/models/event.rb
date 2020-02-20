@@ -27,7 +27,7 @@ class Event < ApplicationRecord
 
   def create_users_id_array
     # trail = Trail.find(:id)
-    self.create_events.map do |x| 
+    self.user_events.map do |x| 
         x.user_id
     end 
   end 
