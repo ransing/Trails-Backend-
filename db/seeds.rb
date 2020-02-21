@@ -13,7 +13,7 @@ Trail.destroy_all
 
 # User.destroy_all
 # url = `https://www.trailrunproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=200&maxResults=500&key=${process.env.TRAIL_AP}`
-trailurl = RestClient.get('https://www.trailrunproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=200&maxResults=500&key=200640090-51b9cd00e0e360e9dc52f3df651324ba')
+trailurl = RestClient.get('https://trailsbackend1.herokuapp.com/trails')
 trail_array = JSON.parse(trailurl)
 
 
@@ -23,7 +23,7 @@ trail_array = JSON.parse(trailurl)
 # rm = RestClient.get('https://rickandmortyapi.com/api/character/')
 # rm_array = JSON.parse(rm)["results"]
 
-trail_array["trails"].each do |x|
+trail_array.each do |x|
     Trail.create(
         name: x["name"],
         category: x["type"],
