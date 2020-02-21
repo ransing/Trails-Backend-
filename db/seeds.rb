@@ -13,7 +13,7 @@ Trail.destroy_all
 
 # User.destroy_all
 # url = `https://www.trailrunproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=200&maxResults=500&key=${process.env.TRAIL_AP}`
-trailurl = RestClient.get(`https://www.trailrunproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=200&maxResults=500&key=`${process.env.TRAIL_AP}`)
+trailurl = RestClient.get(`https://www.trailrunproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=200&maxResults=500&key=#{process.env.TRAIL_API}`)
 trail_array = JSON.parse(trailurl)
 
 
