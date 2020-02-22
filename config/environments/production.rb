@@ -6,8 +6,8 @@ Rails.application.configure do
 
   config.action_cable.mount_path = '/cable'
   # config.action_cable.url = 'wss://trails4.surge.sh/cable'
-  config.action_cable.allowed_request_origins = [ /http:\/\/trails4.surge.sh/ ]
-  config.web_socket_server_url = 'wss://trails4.surge.sh/cable'
+  config.action_cable.allowed_request_origins = [ /http:\/\/trailblzr.surge.sh/ ]
+  config.web_socket_server_url = 'wss://trailblzr.surge.sh/cable'
   
 
   # Eager load code on boot. This eager loads most of Rails and
