@@ -6,6 +6,6 @@ test:
 
 production:
   adapter: redis
-  # url: <%= ENV.fetch("REDIS_URL") { "redis://trails9.herokuapp.com:6379/1" } %>
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  url: <%= ENV.fetch("REDIS_URL") { "redis://febbackend.herokuapp.com:6379/1" } %>
+  # url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
   channel_prefix: trails_production
